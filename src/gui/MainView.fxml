@@ -10,7 +10,7 @@
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
    <content>
       <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="305.0" prefWidth="494.0">
          <children>
@@ -18,7 +18,7 @@
               <menus>
                 <Menu mnemonicParsing="true" text="_Registration">
                   <items>
-                        <MenuItem text="_Import CSV file...     ">
+                        <MenuItem fx:id="menuItemImportCSV" onAction="#onMenuItemImportCSVAction" text="_Import CSV file...     ">
                            <graphic>
                               <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -30,8 +30,8 @@
                               <KeyCodeCombination alt="UP" code="I" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
                            </accelerator>
                         </MenuItem>
-                    <MenuItem mnemonicParsing="true" text="R_ules             " />
-                        <MenuItem mnemonicParsing="true" text="S_ettings...             ">
+                    <MenuItem fx:id="menuItemRules" mnemonicParsing="true" onAction="#onMenuItemRulesAction" text="R_ules             " />
+                        <MenuItem fx:id="menuItemSettings" mnemonicParsing="true" onAction="#onMenuItemSettingsAction" text="S_ettings...             ">
                            <graphic>
                               <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -40,7 +40,7 @@
                               </ImageView>
                            </graphic></MenuItem>
                         <SeparatorMenuItem mnemonicParsing="false" text="-" />
-                        <MenuItem text="_Quit">
+                        <MenuItem fx:id="menuItemQuit" onAction="#onMenuQuitAction" text="_Quit">
                            <accelerator>
                               <KeyCodeCombination alt="DOWN" code="F4" control="UP" meta="UP" shift="UP" shortcut="UP" />
                            </accelerator>
@@ -49,7 +49,7 @@
                 </Menu>
                 <Menu mnemonicParsing="true" text="_Help">
                   <items>
-                    <MenuItem mnemonicParsing="true" text="A_bout" />
+                    <MenuItem fx:id="menuItemAbout" mnemonicParsing="true" onAction="#onMenuItemAboutAction" text="A_bout" />
                   </items>
                 </Menu>
               </menus>
