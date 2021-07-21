@@ -30,7 +30,7 @@
                               <KeyCodeCombination alt="UP" code="I" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
                            </accelerator>
                         </MenuItem>
-                    <MenuItem fx:id="menuItemRules" mnemonicParsing="true" onAction="#onMenuItemRulesAction" text="R_ules             " />
+                    <MenuItem fx:id="menuItemRules" mnemonicParsing="true" onAction="#onMenuItemRulesAction" text="R_ules list             " />
                         <MenuItem fx:id="menuItemSettings" mnemonicParsing="true" onAction="#onMenuItemSettingsAction" text="S_ettings...             ">
                            <graphic>
                               <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
@@ -40,11 +40,7 @@
                               </ImageView>
                            </graphic></MenuItem>
                         <SeparatorMenuItem mnemonicParsing="false" text="-" />
-                        <MenuItem fx:id="menuItemQuit" onAction="#onMenuQuitAction" text="_Quit">
-                           <accelerator>
-                              <KeyCodeCombination alt="DOWN" code="F4" control="UP" meta="UP" shift="UP" shortcut="UP" />
-                           </accelerator>
-                        </MenuItem>
+                        <MenuItem fx:id="menuItemQuit" onAction="#onMenuQuitAction" text="_Quit" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="true" text="_Help">

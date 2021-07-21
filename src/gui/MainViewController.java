@@ -36,7 +36,7 @@ public class MainViewController implements Initializable {
 	
 	@FXML
 	public void onMenuItemRulesAction() {
-		System.out.println("onMenuItemRulesAction");
+		loadView("/gui/RulesList.fxml");
 	}
 	
 	@FXML
@@ -46,7 +46,7 @@ public class MainViewController implements Initializable {
 	
 	@FXML
 	public void onMenuQuitAction() {
-		System.out.println("onMenuQuitAction");
+		System.exit(0);
 	}
 	
 	@FXML
