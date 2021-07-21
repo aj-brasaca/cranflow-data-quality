@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox prefHeight="514.0" prefWidth="1275.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.2">
+<VBox prefHeight="514.0" prefWidth="1275.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RuleListController">
    <children>
       <Label text="Rules List Registration">
          <font>
@@ -22,16 +21,16 @@
       </Label>
       <ToolBar prefHeight="40.0" prefWidth="200.0">
         <items>
-          <Button mnemonicParsing="false" text="    New    " />
+          <Button fx:id="btnNew" mnemonicParsing="false" onAction="#onBtnNewAction" text="    New    " />
         </items>
       </ToolBar>
-      <TableView prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="tableViewRule" prefHeight="200.0" prefWidth="200.0">
         <columns>
-          <TableColumn prefWidth="38.0" text="ID" />
-          <TableColumn prefWidth="157.0" text="Rule Name" />
-            <TableColumn prefWidth="619.0" text="Boolean Expression" />
-            <TableColumn prefWidth="90.0" text="Value Return" />
-            <TableColumn prefWidth="369.0" text="Description" />
+          <TableColumn fx:id="tableColumnId" prefWidth="38.0" text="ID" />
+          <TableColumn fx:id="tableColumnRuleName" prefWidth="157.0" text="Rule Name" />
+            <TableColumn fx:id="tableColumnBooleanExpression" prefWidth="619.0" text="Boolean Expression" />
+            <TableColumn fx:id="tableColumnValueReturn" prefWidth="90.0" text="Value Return" />
+            <TableColumn fx:id="tableColumnDescription" prefWidth="369.0" text="Description" />
         </columns>
       </TableView>
    </children>
