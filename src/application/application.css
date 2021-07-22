@@ -1,1 +1,22 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+
+/*COLOCAR ESTILO NO CONTROLE styleClass="iconImport"
+.iconImport:hover  {
+    -fx-background-color: red;
+}
+.iconImport:focused > .label {
+	-fx-graphic: url("../resources/settings.png");
+}
+*/
+
+/* FUNCIONA PARA COLOCAR O ÍCONE DO LADO ESQUERDO DO TEXTO DO MENU (NÃO NO LOCAL REAL DO ÍCONE) 
+
+.iconImport:hover > .label{
+    -fx-graphic: url("../resources/settings.png");
+}
+.iconImport .accelerator-text{
+    -fx-graphic: none;
+}
+
+*/

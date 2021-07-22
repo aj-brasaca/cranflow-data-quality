@@ -12,8 +12,18 @@ public class Rule implements Serializable {
 	private String booleanExpression;
 	private String valueReturn;
 	private String description;
+	private Boolean activeRule;
 	
 	public Rule() {
+	}
+	
+	public Rule(Integer id, String ruleName, String booleanExpression, String valueReturn, String description, Boolean activeRule) {
+		this.id = id;
+		this.ruleName = ruleName;
+		this.booleanExpression = booleanExpression;
+		this.valueReturn = valueReturn;
+		this.description = description;
+		this.activeRule = activeRule;
 	}
 
 	public Integer getId() {
@@ -59,6 +69,14 @@ public class Rule implements Serializable {
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, ruleName);
+	}
+	
+	public Boolean getActiveRule() {
+		return activeRule;
+	}
+
+	public void setActiveRule(Boolean activeRule) {
+		this.activeRule = activeRule;
 	}
 
 	@Override
