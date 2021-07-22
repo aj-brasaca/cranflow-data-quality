@@ -53,7 +53,7 @@ public class RuleListController implements Initializable {
 		System.out.println("onBtnNewAction");
 	}
 	
-	public void setRuleServide(RuleService service) {
+	public void setRuleService(RuleService service) {
 		this.service = service;
 	}
 	

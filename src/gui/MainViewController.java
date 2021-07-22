@@ -3,6 +3,7 @@ package gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.Consumer;
 
 import application.Main;
 import gui.util.Alerts;
@@ -37,12 +38,20 @@ public class MainViewController implements Initializable {
 	
 	@FXML
 	public void onMenuItemRulesAction() {
-		loadView2("/gui/RulesList.fxml");
+		loadView("/gui/RulesList.fxml", (RuleListController controller) -> {
+			controller.setRuleService(new RuleService());
+			controller.updateTableView();
+		});
 	}
 	
 	@FXML
 	public void onMenuItemSettingsAction() {
 		System.out.println("onMenuItemSettingsAction");
+	}
+			
+	@FXML
+	public void onMenuItemAboutAction() {
+		loadView("/gui/About.fxml", x -> {});
 	}
 	
 	@FXML
@@ -50,29 +59,52 @@ public class MainViewController implements Initializable {
 		System.exit(0);
 	}
 	
-	@FXML
-	public void onMenuItemAboutAction() {
-		loadView("/gui/About.fxml");
-	}
-	
 	@Override
 	public void initialize(URL uri, ResourceBundle rb) {
-			
+			 
 	}
 	
-	private synchronized void loadView(String absoluteName) {
+	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) {
 		
 		try {
+			/*
+			  ObservableList cursors = FXCollections.observableArrayList(
+				      Cursor.DEFAULT,
+				      Cursor.CROSSHAIR,
+				      Cursor.WAIT,
+				      Cursor.TEXT,
+				      Cursor.HAND,
+				      Cursor.MOVE,
+				      Cursor.N_RESIZE,
+				      Cursor.NE_RESIZE,
+				      Cursor.E_RESIZE,
+				      Cursor.SE_RESIZE,
+				      Cursor.S_RESIZE,
+				      Cursor.SW_RESIZE,
+				      Cursor.W_RESIZE,
+				      Cursor.NW_RESIZE,
+				      Cursor.NONE
+				    ); 
+				    
+				ChoiceBox choiceBoxRef = ChoiceBoxBuilder.create().items(cursors).build();
+				
+				scene.cursorProperty().bind(choiceBoxRef.getSelectionModel().selectedItemProperty());
+			*/
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
 			VBox newVBox = loader.load();
-			
+						
 			Scene mainScene = Main.getMainScene();
+			//mainScene.setCursor(Cursor.DEFAULT);
+			//mainScene.cursorProperty().bind(cursor);
 			VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
 			
 			Node mainMenu = mainVBox.getChildren().get(0);
 			mainVBox.getChildren().clear();
 			mainVBox.getChildren().add(mainMenu);
 			mainVBox.getChildren().addAll(newVBox.getChildren());
+			
+			T controller = loader.getController();
+			initializingAction.accept(controller); 
 			
 		} catch (IOException e) {
 			Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), AlertType.ERROR);
@@ -81,29 +113,4 @@ public class MainViewController implements Initializable {
 		
 	}
 	
-	private synchronized void loadView2(String absoluteName) {
-		
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
-			VBox newVBox = loader.load();
-			
-			Scene mainScene = Main.getMainScene();
-			VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
-			
-			Node mainMenu = mainVBox.getChildren().get(0);
-			mainVBox.getChildren().clear();
-			mainVBox.getChildren().add(mainMenu);
-			mainVBox.getChildren().addAll(newVBox.getChildren());
-			
-			RuleListController controller = loader.getController();
-			controller.setRuleServide(new RuleService());
-			controller.updateTableView();
-			
-		} catch (IOException e) {
-			Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), AlertType.ERROR);
-			e.printStackTrace();
-		}
-		
-	}
-
 }
