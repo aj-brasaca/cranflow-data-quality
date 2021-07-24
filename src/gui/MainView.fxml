@@ -12,13 +12,13 @@
 
 <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
    <content>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="305.0" prefWidth="494.0">
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
          <children>
-            <MenuBar>
+            <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="25.0" prefWidth="500.0">
               <menus>
                 <Menu mnemonicParsing="true" text="_Registration">
                   <items>
-                        <MenuItem fx:id="menuItemImportCSV" onAction="#onMenuItemImportCSVAction" text="_Import CSV file...     ">
+                        <MenuItem fx:id="menuItemImportCSV" onAction="#onMenuItemImportCSVAction" text="_Import CSV file...">
                            <graphic>
                               <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -30,8 +30,12 @@
                               <KeyCodeCombination alt="UP" code="I" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
                            </accelerator>
                         </MenuItem>
-                    <MenuItem fx:id="menuItemRules" mnemonicParsing="true" onAction="#onMenuItemRulesAction" text="R_ules list             " />
-                        <MenuItem fx:id="menuItemSettings" mnemonicParsing="true" onAction="#onMenuItemSettingsAction" text="S_ettings...             ">
+                        <MenuItem text="Rules _Groups..." />
+                    <MenuItem fx:id="menuItemRules" mnemonicParsing="true" onAction="#onMenuItemRulesAction" text="Rules _List">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="L" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <MenuItem fx:id="menuItemSettings" mnemonicParsing="true" onAction="#onMenuItemSettingsAction" text="_Settings...                   ">
                            <graphic>
                               <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

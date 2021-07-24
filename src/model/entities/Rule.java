@@ -7,76 +7,77 @@ public class Rule implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	private Integer id;
-	private String ruleName;
-	private String booleanExpression;
-	private String valueReturn;
-	private String description;
-	private Boolean activeRule;
+	private Integer rlId;
+	private String rlName;
+	private String rlExpression;
+	private String rlValueReturn;
+	private String rlDescription;
+	private Integer rlActiveRule;
+	
+	private RuleGroup ruleGroup;
 	
 	public Rule() {
 	}
-	
-	public Rule(Integer id, String ruleName, String booleanExpression, String valueReturn, String description, Boolean activeRule) {
-		this.id = id;
-		this.ruleName = ruleName;
-		this.booleanExpression = booleanExpression;
-		this.valueReturn = valueReturn;
-		this.description = description;
-		this.activeRule = activeRule;
+
+	public Integer getRlId() {
+		return rlId;
 	}
 
-	public Integer getId() {
-		return id;
+	public void setRlId(Integer rlId) {
+		this.rlId = rlId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public String getRlName() {
+		return rlName;
 	}
 
-	public String getRuleName() {
-		return ruleName;
+	public void setRlName(String rlName) {
+		this.rlName = rlName;
 	}
 
-	public void setRuleName(String ruleName) {
-		this.ruleName = ruleName;
+	public String getRlExpression() {
+		return rlExpression;
 	}
 
-	public String getBooleanExpression() {
-		return booleanExpression;
+	public void setRlExpression(String rlExpression) {
+		this.rlExpression = rlExpression;
 	}
 
-	public void setBooleanExpression(String booleanExpression) {
-		this.booleanExpression = booleanExpression;
+	public String getRlValueReturn() {
+		return rlValueReturn;
 	}
 
-	public String getValueReturn() {
-		return valueReturn;
+	public void setRlValueReturn(String rlValueReturn) {
+		this.rlValueReturn = rlValueReturn;
 	}
 
-	public void setValueReturn(String valueReturn) {
-		this.valueReturn = valueReturn;
+	public String getRlDescription() {
+		return rlDescription;
 	}
 
-	public String getDescription() {
-		return description;
+	public void setRlDescription(String rlDescription) {
+		this.rlDescription = rlDescription;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public Integer getRlActiveRule() {
+		return rlActiveRule;
+	}
+
+	public void setRlActiveRule(Integer rlActiveRule) {
+		this.rlActiveRule = rlActiveRule;
+	}
+
+	public RuleGroup getRuleGroup() {
+		return ruleGroup;
+	}
+
+	public void setRuleGroup(RuleGroup ruleGroup) {
+		this.ruleGroup = ruleGroup;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, ruleName);
-	}
-	
-	public Boolean getActiveRule() {
-		return activeRule;
-	}
-
-	public void setActiveRule(Boolean activeRule) {
-		this.activeRule = activeRule;
+		return Objects.hash(rlActiveRule, rlDescription, rlExpression, rlId, rlName, rlValueReturn, ruleGroup);
 	}
 
 	@Override
@@ -88,13 +89,17 @@ public class Rule implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Rule other = (Rule) obj;
-		return Objects.equals(id, other.id) && Objects.equals(ruleName, other.ruleName);
+		return Objects.equals(rlActiveRule, other.rlActiveRule) && Objects.equals(rlDescription, other.rlDescription)
+				&& Objects.equals(rlExpression, other.rlExpression) && Objects.equals(rlId, other.rlId)
+				&& Objects.equals(rlName, other.rlName) && Objects.equals(rlValueReturn, other.rlValueReturn)
+				&& Objects.equals(ruleGroup, other.ruleGroup);
 	}
 
 	@Override
 	public String toString() {
-		return "Rule [id=" + id + ", ruleName=" + ruleName + ", booleanExpression=" + booleanExpression
-				+ ", valueReturn=" + valueReturn + ", description=" + description + "]";
+		return "Rule [rlId=" + rlId + ", rlName=" + rlName + ", rlExpression=" + rlExpression + ", rlValueReturn="
+				+ rlValueReturn + ", rlDescription=" + rlDescription + ", rlActiveRule=" + rlActiveRule + ", ruleGroup="
+				+ ruleGroup + "]";
 	}
 		
 }

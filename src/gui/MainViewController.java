@@ -47,6 +47,8 @@ public class MainViewController implements Initializable {
 	@FXML
 	public void onMenuItemSettingsAction() {
 		System.out.println("onMenuItemSettingsAction");
+//		Connection conn = DbConnection.getConnection();
+//		DbConnection.closeConnection();
 	}
 			
 	@FXML
