@@ -5,56 +5,102 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
-   <content>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-         <children>
-            <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="25.0" prefWidth="500.0">
-              <menus>
-                <Menu mnemonicParsing="true" text="_Registration">
-                  <items>
-                        <MenuItem fx:id="menuItemImportCSV" onAction="#onMenuItemImportCSVAction" text="_Import CSV file...">
-                           <graphic>
-                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../resources/import-csv.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="I" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
-                           </accelerator>
-                        </MenuItem>
-                        <MenuItem text="Rules _Groups..." />
-                    <MenuItem fx:id="menuItemRules" mnemonicParsing="true" onAction="#onMenuItemRulesAction" text="Rules _List">
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="L" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
-                           </accelerator></MenuItem>
-                        <MenuItem fx:id="menuItemSettings" mnemonicParsing="true" onAction="#onMenuItemSettingsAction" text="_Settings...                   ">
-                           <graphic>
-                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../resources/settings.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic></MenuItem>
-                        <SeparatorMenuItem mnemonicParsing="false" text="-" />
-                        <MenuItem fx:id="menuItemQuit" onAction="#onMenuQuitAction" text="_Quit" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="true" text="_Help">
-                  <items>
-                    <MenuItem fx:id="menuItemAbout" mnemonicParsing="true" onAction="#onMenuItemAboutAction" text="A_bout" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-         </children>
-      </VBox>
-   </content>
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
+	<content>
+		<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+			<children>
+				<MenuBar fx:id="menuBar">
+					<menus>
+						<Menu text="_Registration">
+							<items>
+								<MenuItem fx:id="menuItemImportCSV" onAction="#onMenuItemImportCSVAction" text="_Import CSV Files...        ">
+									<accelerator>
+										<KeyCodeCombination alt="UP" code="I" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+									</accelerator>
+									<graphic>
+										<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+											<image>												
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+								<MenuItem fx:id="menuItemFilesProperties" text="_CSV File Properties...">
+									<graphic>
+										<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+											<image>												
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+								<MenuItem fx:id="menuItemRulesGroup" onAction="#onMenuItemRulesGroupAction" text="Rules _Groups...">
+									<graphic>
+										<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+											<image>												
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+								<MenuItem fx:id="menuItemRules" onAction="#onMenuItemRulesListAction" text="Rules _List">
+									<accelerator>
+										<KeyCodeCombination alt="UP" code="L" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+									</accelerator>
+									<graphic>
+										<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+											<image>												
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+								<MenuItem fx:id="menuItemCenters" onAction="#onMenuItemCentersListAction" text="_Centers...">
+									<graphic>
+										<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+											<image>												
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+								<SeparatorMenuItem mnemonicParsing="false" />
+								<MenuItem fx:id="menuItemSettings" onAction="#onMenuItemSettingsAction" text="_Settings...">
+									<graphic>
+										<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+											<image>												
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+								<SeparatorMenuItem mnemonicParsing="false" />
+								<MenuItem fx:id="menuItemQuit" onAction="#onMenuQuitAction" text="_Quit">
+									<graphic>
+										<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+											<image>												
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+							</items>
+							<accelerator>
+								<KeyCodeCombination alt="DOWN" code="R" control="UP" meta="UP" shift="UP" shortcut="UP" />
+							</accelerator>
+						</Menu>
+						<Menu text="_Help">
+							<items>
+								<MenuItem fx:id="menuItemAbout" onAction="#onMenuItemAboutAction" text="_About            ">
+									<graphic>
+										<ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+											<image>												
+											</image>
+										</ImageView>
+									</graphic>
+								</MenuItem>
+							</items>
+						</Menu>
+					</menus>
+				</MenuBar>
+			</children>
+		</VBox>
+	</content>
 </ScrollPane>

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="516.0" prefWidth="1495.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RuleListController">
+<VBox prefHeight="513.0" prefWidth="1567.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RuleListController">
    <children>
       <Label text="Rules List Registration">
          <font>
@@ -26,9 +26,9 @@
       </ToolBar>
       <TableView fx:id="tableViewRule" prefHeight="200.0" prefWidth="200.0">
         <columns>
-          <TableColumn fx:id="tableColumnId" prefWidth="47.0" resizable="false" style="-fx-alignment: CENTER;" text="ID" />
-          <TableColumn fx:id="tableColumnRuleName" prefWidth="148.0" text="Rule Name" />
-            <TableColumn fx:id="tableColumnBooleanExpression" prefWidth="619.0" style="-fx-alignment: CENTER;" text="Boolean Expression" />
+          <TableColumn fx:id="tableColumnId" minWidth="4.0" prefWidth="50.0" resizable="false" style="-fx-alignment: CENTER;" text="ID" />
+          <TableColumn fx:id="tableColumnRuleName" prefWidth="96.0" text="Rule Name" />
+            <TableColumn fx:id="tableColumnBooleanExpression" prefWidth="619.0" style="-fx-alignment: CENTER;" text="Expression" />
             <TableColumn fx:id="tableColumnValueReturn" prefWidth="90.0" resizable="false" style="-fx-alignment: CENTER;" text="Return Value" />
             <TableColumn fx:id="tableColumnDescription" prefWidth="488.0" text="Description" />
             <TableColumn fx:id="tableColumnActiveRule" prefWidth="95.0" resizable="false" style="-fx-alignment: CENTER;" text="Active Rule" />

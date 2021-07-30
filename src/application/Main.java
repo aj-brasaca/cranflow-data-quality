@@ -22,10 +22,12 @@ public class Main extends Application {
 			scrollPane.setFitToWidth(true);
 			
 			mainScene = new Scene(scrollPane);
-			//mainScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			mainScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(mainScene);
 			primaryStage.setTitle("CranFlow DQA - Data Quality Analysis");
 			primaryStage.setMaximized(true);
+			primaryStage.setMinWidth(600);
+			primaryStage.setMinHeight(400);
 			primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();

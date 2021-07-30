@@ -12,11 +12,22 @@ public class Rule implements Serializable {
 	private String rlExpression;
 	private String rlValueReturn;
 	private String rlDescription;
-	private Integer rlActiveRule;
+	//private Integer rlActiveRule;
+	private String rlActiveRule;
 	
-	private RuleGroup ruleGroup;
+	//private RuleGroup ruleGroup;
 	
 	public Rule() {
+	}
+	
+	public Rule(Integer rlId, String rlName, String rlExpression, String rlValueReturn, String rlDescription,
+			String rlActiveRule) {
+		this.rlId = rlId;
+		this.rlName = rlName;
+		this.rlExpression = rlExpression;
+		this.rlValueReturn = rlValueReturn;
+		this.rlDescription = rlDescription;
+		this.rlActiveRule = rlActiveRule;
 	}
 
 	public Integer getRlId() {
@@ -59,25 +70,23 @@ public class Rule implements Serializable {
 		this.rlDescription = rlDescription;
 	}
 
-	public Integer getRlActiveRule() {
+	public String getRlActiveRule() {
 		return rlActiveRule;
 	}
 
-	public void setRlActiveRule(Integer rlActiveRule) {
+	public void setRlActiveRule(String rlActiveRule) {
 		this.rlActiveRule = rlActiveRule;
 	}
 
-	public RuleGroup getRuleGroup() {
-		return ruleGroup;
-	}
-
-	public void setRuleGroup(RuleGroup ruleGroup) {
-		this.ruleGroup = ruleGroup;
-	}
+	/*
+	 * public RuleGroup getRuleGroup() { return ruleGroup; }
+	 * 
+	 * public void setRuleGroup(RuleGroup ruleGroup) { this.ruleGroup = ruleGroup; }
+	 */
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(rlActiveRule, rlDescription, rlExpression, rlId, rlName, rlValueReturn, ruleGroup);
+		return Objects.hash(rlId, rlName);
 	}
 
 	@Override
@@ -89,17 +98,16 @@ public class Rule implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Rule other = (Rule) obj;
-		return Objects.equals(rlActiveRule, other.rlActiveRule) && Objects.equals(rlDescription, other.rlDescription)
-				&& Objects.equals(rlExpression, other.rlExpression) && Objects.equals(rlId, other.rlId)
-				&& Objects.equals(rlName, other.rlName) && Objects.equals(rlValueReturn, other.rlValueReturn)
-				&& Objects.equals(ruleGroup, other.ruleGroup);
+		return Objects.equals(rlId, other.rlId) && Objects.equals(rlName, other.rlName);
 	}
 
-	@Override
-	public String toString() {
-		return "Rule [rlId=" + rlId + ", rlName=" + rlName + ", rlExpression=" + rlExpression + ", rlValueReturn="
-				+ rlValueReturn + ", rlDescription=" + rlDescription + ", rlActiveRule=" + rlActiveRule + ", ruleGroup="
-				+ ruleGroup + "]";
-	}
+
+
+	/*
+	 * @Override public String toString() { return "Rule [rlId=" + rlId +
+	 * ", rlName=" + rlName + ", rlExpression=" + rlExpression + ", rlValueReturn="
+	 * + rlValueReturn + ", rlDescription=" + rlDescription + ", rlActiveRule=" +
+	 * rlActiveRule + ", ruleGroup=" + ruleGroup + "]"; }
+	 */
 		
 }

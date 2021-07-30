@@ -1,22 +1,73 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
-
-/*COLOCAR ESTILO NO CONTROLE styleClass="iconImport"
-.iconImport:hover  {
-    -fx-background-color: red;
-}
-.iconImport:focused > .label {
-	-fx-graphic: url("../resources/settings.png");
-}
-*/
-
-/* FUNCIONA PARA COLOCAR O ÍCONE DO LADO ESQUERDO DO TEXTO DO MENU (NÃO NO LOCAL REAL DO ÍCONE) 
-
-.iconImport:hover > .label{
-    -fx-graphic: url("../resources/settings.png");
-}
-.iconImport .accelerator-text{
-    -fx-graphic: none;
+#menuItemImportCSV .image-view {
+	-fx-image: url("../resources/import-csv-file.png");
 }
 
-*/
+#menuItemImportCSV:focused .image-view {
+	-fx-image: url("../resources/import-csv-file-w.png");
+}
+
+#menuItemFilesProperties .image-view {
+	-fx-image: url("../resources/file-properties.png");
+} 
+
+#menuItemFilesProperties:focused .image-view {
+	-fx-image: url("../resources/file-properties-w.png");
+}
+
+#menuItemRulesGroup .image-view {
+	-fx-image: url("../resources/rules-group.png");
+} 
+
+#menuItemRulesGroup:focused .image-view {
+	-fx-image: url("../resources/rules-group-w.png");
+}
+
+#menuItemRules .image-view {
+	-fx-image: url("../resources/rules-list.png");
+} 
+
+#menuItemRules:focused .image-view {
+	-fx-image: url("../resources/rules-list-w.png");
+}
+
+#menuItemCenters .image-view {
+	-fx-image: url("../resources/center.png");
+} 
+
+#menuItemCenters:focused .image-view {
+	-fx-image: url("../resources/center-w.png");
+}
+
+#menuItemSettings .image-view {
+	-fx-image: url("../resources/settings.png");
+} 
+
+#menuItemSettings:focused .image-view {
+	-fx-image: url("../resources/settings-w.png");
+}
+
+#menuItemQuit .image-view {
+	-fx-image: url("../resources/quit.png");
+} 
+
+#menuItemQuit:focused .image-view {
+	-fx-image: url("../resources/quit-w.png");
+}
+
+#menuItemAbout .image-view {
+	-fx-image: url("../resources/about.png");
+} 
+
+#menuItemAbout:focused .image-view {
+	-fx-image: url("../resources/about-w.png");
+}
+
+
+
+
+
+
+
+

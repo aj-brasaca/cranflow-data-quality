@@ -19,9 +19,9 @@ public class Utils {
 	public static Stage currentStage(ActionEvent event) {
 		// RETORNAR UMA REFERÊNCIA PARA A JANELA ATUAL.
 		// o evento ocorreu "neste controle" (getSource(), que é muito genérico -
-		// porisso o upcasting para Node),
+		// porisso o downcasting para Node),
 		// que está "nesta cena" (getScene()) e que está "nesta janela" (getWindow()),
-		// fazendo finalmente upcasting para Stage.
+		// fazendo finalmente downcasting para Stage.
 		return (Stage) ((Node) event.getSource()).getScene().getWindow();
 	}
 
