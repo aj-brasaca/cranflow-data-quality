@@ -16,11 +16,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane minWidth="-Infinity" prefHeight="403.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane minWidth="-Infinity" prefHeight="413.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RuleFormController">
    <children>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: e4e4e4;" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane prefHeight="210.0" prefWidth="200.0" style="-fx-background-color: e4e4e4;" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <GridPane layoutX="13.0" layoutY="10.0" prefHeight="386.0" prefWidth="463.0">
+            <GridPane layoutX="13.0" layoutY="10.0" prefHeight="396.0" prefWidth="463.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="165.0" minWidth="10.0" prefWidth="115.0" />
                   <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="NEVER" maxWidth="400.0" minWidth="10.0" prefWidth="348.0" />
@@ -29,9 +29,9 @@
                <rowConstraints>
                   <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="NEVER" />
                   <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="30.0" prefHeight="90.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="30.0" prefHeight="95.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="30.0" prefHeight="90.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="30.0" prefHeight="95.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="26.0" minHeight="5.0" prefHeight="14.0" vgrow="SOMETIMES" />
@@ -42,19 +42,19 @@
                   <Label text="Rule name" GridPane.rowIndex="1" />
                   <Label text="Expression" GridPane.rowIndex="2" />
                   <Label text="Return value" GridPane.rowIndex="3" />
-                  <TextField alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="32.0" GridPane.columnIndex="1" />
-                  <TextField prefHeight="25.0" prefWidth="370.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
-                  <TextArea prefHeight="90.0" prefWidth="370.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField prefHeight="25.0" prefWidth="370.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="3" />
-                  <TextArea prefHeight="200.0" prefWidth="370.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="txtRlId" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="32.0" GridPane.columnIndex="1" />
+                  <TextField fx:id="txtRlName" prefHeight="25.0" prefWidth="348.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                  <TextArea fx:id="txaRlExpression" maxHeight="-Infinity" prefHeight="90.0" prefWidth="348.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="cboRlValueReturn" prefHeight="25.0" prefWidth="84.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label text="Description" GridPane.rowIndex="4" />
                   <Label text="Active" GridPane.rowIndex="5" />
-                  <Label text="Rules group" GridPane.rowIndex="6" />
-                  <CheckBox mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <ComboBox prefHeight="25.0" prefWidth="370.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Label text="Rule group" GridPane.rowIndex="6" />
+                  <TextArea fx:id="txaRlDescription" maxHeight="-Infinity" prefHeight="90.0" prefWidth="348.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <CheckBox fx:id="chkRlActiveRule" mnemonicParsing="false" selected="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <ComboBox fx:id="cboGroupName" prefHeight="25.0" prefWidth="348.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                   <HBox alignment="TOP_RIGHT" prefHeight="100.0" spacing="6.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
                      <children>
-                        <Button alignment="CENTER" defaultButton="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Save">
+                        <Button fx:id="btnSave" alignment="CENTER" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#onBtnSaveAction" prefHeight="25.0" prefWidth="84.0" text="Save">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -63,7 +63,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button cancelButton="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Cancel">
+                        <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#onBtnCancelAction" prefHeight="25.0" prefWidth="84.0" text="Cancel">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

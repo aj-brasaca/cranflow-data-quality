@@ -14,20 +14,21 @@ public class Rule implements Serializable {
 	private String rlDescription;
 	//private Integer rlActiveRule;
 	private String rlActiveRule;
-	
 	//private RuleGroup ruleGroup;
+	private String rlGroup;
 	
 	public Rule() {
 	}
 	
 	public Rule(Integer rlId, String rlName, String rlExpression, String rlValueReturn, String rlDescription,
-			String rlActiveRule) {
+			String rlActiveRule, String rlGroup) {
 		this.rlId = rlId;
 		this.rlName = rlName;
 		this.rlExpression = rlExpression;
 		this.rlValueReturn = rlValueReturn;
 		this.rlDescription = rlDescription;
 		this.rlActiveRule = rlActiveRule;
+		this.rlGroup = rlGroup;
 	}
 
 	public Integer getRlId() {
@@ -83,6 +84,14 @@ public class Rule implements Serializable {
 	 * 
 	 * public void setRuleGroup(RuleGroup ruleGroup) { this.ruleGroup = ruleGroup; }
 	 */
+	
+	public String getRlGroup() {
+		return rlGroup;
+	}
+
+	public void setRlGroup(String rlGroup) {
+		this.rlGroup = rlGroup;
+	}
 
 	@Override
 	public int hashCode() {

@@ -34,9 +34,6 @@ public class RuleListController implements Initializable {
 	@FXML
 	private TableView<Rule> tableViewRule;
 	
-	//@FXML
-	//private TableColumn<Rule, String> tableColumnGroupName;
-	
 	@FXML
 	private TableColumn<Rule, Integer> tableColumnId;
 	
@@ -56,6 +53,9 @@ public class RuleListController implements Initializable {
 	private TableColumn<Rule, String> tableColumnActiveRule;
 	
 	@FXML
+	private TableColumn<Rule, String> tableColumnGroup;
+	
+	@FXML
 	private Button btnNew;
 	
 	private ObservableList<Rule> obsList;
@@ -63,7 +63,8 @@ public class RuleListController implements Initializable {
 	@FXML
 	public void onBtnNewAction(ActionEvent event) {
 		Stage parentStage = Utils.currentStage(event);
-		createDialogForm("/gui/RulesForm.fxml", parentStage);
+		Rule obj = new Rule();
+		createDialogForm(obj, "/gui/RulesForm.fxml", parentStage);
 	}
 	
 	public void setRuleService(RuleService service) {
@@ -89,6 +90,7 @@ public class RuleListController implements Initializable {
 		tableColumnValueReturn.setCellValueFactory(new PropertyValueFactory<>("rlValueReturn"));
 		tableColumnDescription.setCellValueFactory(new PropertyValueFactory<>("rlDescription"));
 		tableColumnActiveRule.setCellValueFactory(new PropertyValueFactory<>("rlActiveRule"));
+		tableColumnGroup.setCellValueFactory(new PropertyValueFactory<>("rlGroup"));
 		
 		Stage stage = (Stage) Main.getMainScene().getWindow();
 		tableViewRule.prefHeightProperty().bind(stage.heightProperty());
@@ -110,11 +112,15 @@ public class RuleListController implements Initializable {
 		
 	}
 	
-	public void createDialogForm(String absoluteName, Stage parentStage) {
+	public void createDialogForm(Rule obj, String absoluteName, Stage parentStage) {
 		
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
 			Pane pane = loader.load();
+			
+			RuleFormController controller = loader.getController();
+			controller.setRule(obj);
+			controller.updateFormData();
 			
 			Stage dialogStage = new Stage();
 			dialogStage.setTitle("Enter Rule data");

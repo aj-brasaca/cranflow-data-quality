@@ -160,9 +160,9 @@ public class RuleDaoJDBC implements RuleDao {
 	public List<Rule> findAll() {
 
 		List<Rule> list = Arrays.asList(
-			(new Rule( 1, "Regra 1", "namePatient == 0 && nameMother < 10", "true", "Nome do paciente igual e nome mãe semelhante", "true")),
-			(new Rule( 2, "Regra 2", "namePatient < 10 && nameMother < 10 && twin == 'não'", "true", "Nome do paciente e mãe semelhantes, gêmeo", "false")),
-			(new Rule( 3, "Regra 3", "namePatient < 10 && twin == 'sim'", "true", "Nome do paciente semelhante e gêmeo", "true")));
+			(new Rule( 1, "Regra 1", "nomePaciente == 0 && nomeMae < 10", "true", "Nome do paciente igual e nome mãe semelhante", "true", "Grupo 1")),
+			(new Rule( 2, "Regra 2", "nomePaciente < 10 && nomeMae < 10 && gemeo == 'não'", "true", "Nome do paciente e mãe semelhantes, gêmeo", "false", "Grupo 1")),
+			(new Rule( 3, "Regra 3", "nomePaciente < 10 && gemeo == 'sim'", "true", "Nome do paciente semelhante e gêmeo", "true", "Grupo 1")));
 		
 		return list;
 		

@@ -32,6 +32,7 @@
             <TableColumn fx:id="tableColumnValueReturn" prefWidth="90.0" resizable="false" style="-fx-alignment: CENTER;" text="Return Value" />
             <TableColumn fx:id="tableColumnDescription" prefWidth="488.0" text="Description" />
             <TableColumn fx:id="tableColumnActiveRule" prefWidth="95.0" resizable="false" style="-fx-alignment: CENTER;" text="Active Rule" />
+            <TableColumn fx:id="tableColumnGroup" prefWidth="122.0" style="-fx-alignment: CENTER;" text="Group" />
         </columns>
       </TableView>
    </children>
