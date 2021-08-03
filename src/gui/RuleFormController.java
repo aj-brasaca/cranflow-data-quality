@@ -7,7 +7,10 @@ import org.controlsfx.validation.Severity;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 
+import db.DbException;
+import gui.util.Alerts;
 import gui.util.Constraints;
+import gui.util.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,11 +19,15 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import model.entities.Rule;
+import model.services.RuleService;
 
 public class RuleFormController implements Initializable {
 
 	private Rule entity;
+	
+	private RuleService service;
 	
 	@FXML
 	private TextField txtRlId;
@@ -53,14 +60,50 @@ public class RuleFormController implements Initializable {
 		this.entity = entity;
 	}
 	
-	@FXML
-	public void onBtnSaveAction() {
-		System.out.println("onBtnSaveAction");
+	public void setRuleService(RuleService service) {
+		this.service = service;
 	}
 	
 	@FXML
+	public void onBtnSaveAction(ActionEvent event) {
+		
+		if (entity == null) {
+			throw new IllegalStateException("Entity was null");
+		}
+		
+		if (service == null) {
+			throw new IllegalStateException("Service was null");
+		}
+		
+		try {
+			entity = getFormData();
+			service.saveOrUpdate(entity);
+			Utils.currentStage(event).close();
+		} catch (DbException e) {
+			Alerts.showAlert("Error saving object", null, e.getMessage(), AlertType.ERROR);
+		}
+		
+	}
+	
+	private Rule getFormData() {
+		
+		Rule obj = new Rule();
+		
+		obj.setRlId(Utils.tryParseToInt(txtRlId.getText()));
+		obj.setRlName(txtRlName.getText());
+		obj.setRlExpression(txaRlExpression.getText());
+		obj.setRlValueReturn(cboRlValueReturn.getSelectionModel().getSelectedItem().toString());
+		obj.setRlDescription(txaRlDescription.getText());
+		obj.setRlActiveRule(String.valueOf(chkRlActiveRule.isSelected()));
+		obj.setRlGroup(cboGroupName.getSelectionModel().getSelectedItem().toString());
+				
+		return obj;
+	
+	}
+
+	@FXML
 	public void onBtnCancelAction(ActionEvent event) {
-		System.out.println("onBtnCancelAction");		
+		Utils.currentStage(event).close();		
 	}
 	
 	public RuleFormController() {

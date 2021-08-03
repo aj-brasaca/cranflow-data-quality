@@ -120,6 +120,7 @@ public class RuleListController implements Initializable {
 			
 			RuleFormController controller = loader.getController();
 			controller.setRule(obj);
+			controller.setRuleService(new RuleService());
 			controller.updateFormData();
 			
 			Stage dialogStage = new Stage();

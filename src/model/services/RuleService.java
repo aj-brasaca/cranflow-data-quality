@@ -14,4 +14,12 @@ public class RuleService {
 		return dao.findAll();
 	}
 	
+	public void saveOrUpdate(Rule obj) {
+		if (obj.getRlId() == null) {
+			dao.insert(obj);
+		} else {
+			dao.update(obj);
+		}
+	}
+	
 }
